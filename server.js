@@ -1,10 +1,12 @@
 import fs from 'node:fs/promises';
 import express from 'express';
+import { Transform } from 'node:stream';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production';
 const port = process.env.PORT || 5173;
 const base = process.env.BASE || '/';
+const ABORT_DELAY = 10000;
 
 // Cached production assets
 const templateHtml = isProduction
@@ -50,15 +52,44 @@ app.use('*all', async (req, res) => {
       template = templateHtml;
       render = (await import('./dist/server/entry-server.js')).render;
     }
+    let didError = false;
 
-    // Call render function and ensure it processes the route
-    const rendered = await render(url);
+    const { pipe, abort } = render(url, {
+      onShellError() {
+        res.status(500);
+        res.set({ 'Content-Type': 'text/html' });
+        res.send('<h1>Something went wrong</h1>');
+      },
+      onShellReady() {
+        res.status(didError ? 500 : 200);
+        res.set({ 'Content-Type': 'text/html' });
 
-    const html = template
-      .replace(`<!--app-head-->`, rendered.head ?? '') // Inject head (if available)
-      .replace(`<!--app-html-->`, rendered.html || '<div>Page not found</div>'); // Fallback if no HTML is returned
+        const transformStream = new Transform({
+          transform(chunk, encoding, callback) {
+            res.write(chunk, encoding);
+            callback();
+          },
+        });
 
-    res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
+        const [htmlStart, htmlEnd] = template.split(`<!--app-html-->`);
+
+        res.write(htmlStart);
+
+        transformStream.on('finish', () => {
+          res.end(htmlEnd);
+        });
+
+        pipe(transformStream);
+      },
+      onError(error) {
+        didError = true;
+        console.error(error);
+      },
+    });
+
+    setTimeout(() => {
+      abort();
+    }, ABORT_DELAY);
   } catch (e) {
     vite?.ssrFixStacktrace(e);
     console.error(e.stack);
