@@ -11,7 +11,7 @@ import { Router } from './routes';
  * @param {string} url
  * @param {import('react-dom/server').RenderToPipeableStreamOptions} [options]
  */
-export function render(url) {
+export function render(url, options) {
   const html = renderToPipeableStream(
     <StrictMode>
       <StaticRouter location={url}>
