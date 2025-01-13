@@ -52,6 +52,7 @@ app.use('*all', async (req, res) => {
       template = templateHtml;
       render = (await import('./dist/server/entry-server.js')).render;
     }
+
     let didError = false;
 
     const { pipe, abort } = render(url, {
@@ -92,7 +93,7 @@ app.use('*all', async (req, res) => {
     }, ABORT_DELAY);
   } catch (e) {
     vite?.ssrFixStacktrace(e);
-    console.error(e.stack);
+    console.log(e.stack);
     res.status(500).end(e.stack);
   }
 });

@@ -12,7 +12,7 @@ import { Router } from './routes';
  * @param {import('react-dom/server').RenderToPipeableStreamOptions} [options]
  */
 export function render(url, options) {
-  const html = renderToPipeableStream(
+  const { pipe, abort } = renderToPipeableStream(
     <StrictMode>
       <StaticRouter location={url}>
         <Router />
@@ -23,5 +23,5 @@ export function render(url, options) {
 
   const head = '<meta name="description" content="Server-side rendered page">';
 
-  return { html, head };
+  return { pipe, head, abort };
 }
