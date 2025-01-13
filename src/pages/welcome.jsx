@@ -25,11 +25,9 @@ import {
   Switcher as SwitcherIcon,
 } from '@carbon/icons-react';
 
-import './App.scss';
-
-const App = () => {
+const Welcome = () => {
   return (
-    <div className="app">
+    <div className="main">
       {/* Header */}
       <Header aria-label="FED@IBM">
         <HeaderName href="#" prefix="FED@IBM">
@@ -160,7 +158,7 @@ const App = () => {
               </Column>
               <Column className="carbon-starter--tile" sm={2} md={4} lg={4}>
                 <Tile title="Flexibility">
-                  <strong>React 19</strong>
+                  <strong>React 18 SSR</strong>
                 </Tile>
               </Column>
               <Column className="carbon-starter--tile" sm={2} md={4} lg={4}>
@@ -181,4 +179,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Welcome;

@@ -1,5 +1,9 @@
 @use '@carbon/react';
+@use '@carbon/styles';
 @use '@carbon/layout' as *;
+@use '@ibm/plex/scss/ibm-plex.scss';
+
+$font-prefix: '~@ibm/plex';
 
 .carbon-starter {
   &--tiles {

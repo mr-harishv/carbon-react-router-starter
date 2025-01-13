@@ -1,15 +1,25 @@
-import { StrictMode } from 'react'
-import { renderToString } from 'react-dom/server'
-import App from './App'
+// Third-party imports
+import { StrictMode } from 'react';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router';
+
+// App level imports
+import './App.scss';
+import { Router } from './routes';
 
 /**
- * @param {string} _url
+ * @param {string} url
  */
-export function render(_url) {
+export function render(url) {
   const html = renderToString(
     <StrictMode>
-      <App />
-    </StrictMode>,
-  )
-  return { html }
+      <StaticRouter location={url}>
+        <Router />
+      </StaticRouter>
+    </StrictMode>
+  );
+
+  const head = '<meta name="description" content="Server-side rendered page">';
+
+  return { html, head };
 }
