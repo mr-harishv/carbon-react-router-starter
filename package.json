@@ -28,6 +28,6 @@
     "@vitejs/plugin-react-swc": "^3.7.1",
     "cross-env": "^7.0.3",
     "sass-embedded": "^1.83.1",
-    "vite": "^6.0.1"
+    "vite": "^6.0.11"
   }
 }
