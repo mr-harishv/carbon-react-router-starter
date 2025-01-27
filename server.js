@@ -8,11 +8,6 @@ const port = process.env.PORT || 5173;
 const base = process.env.BASE || '/';
 const ABORT_DELAY = 10000;
 
-// Cached production assets
-const templateHtml = isProduction
-  ? await fs.readFile('./dist/client/index.html', 'utf-8')
-  : '';
-
 // Create http server
 const app = express();
 
@@ -49,6 +44,9 @@ app.use('*all', async (req, res) => {
       template = await vite.transformIndexHtml(url, template);
       render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render;
     } else {
+      const templateHtml = isProduction
+        ? await fs.readFile('./dist/client/index.html', 'utf-8')
+        : '';
       template = templateHtml;
       render = (await import('./dist/server/entry-server.js')).render;
     }
