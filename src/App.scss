@@ -1,26 +1,49 @@
 @use '@carbon/react';
-@use '@carbon/styles';
+@use '@carbon/styles' as styles;
 @use '@carbon/layout' as *;
 @use '@ibm/plex/scss/ibm-plex.scss';
 
 $font-prefix: '~@ibm/plex';
 
+@use '@carbon/styles/scss/theme';
+@use '@carbon/styles/scss/themes';
+
+:root[data-carbon-theme='white'] {
+  @include theme.theme(themes.$white);
+}
+
+:root[data-carbon-theme='g10'] {
+  @include theme.theme(themes.$g10);
+}
+
+:root[data-carbon-theme='g90'] {
+  @include theme.theme(themes.$g90);
+}
+
+:root[data-carbon-theme='g100'] {
+  @include theme.theme(themes.$g100);
+}
+
+.main {
+  height: calc(100vh - 48px);;
+}
+
 .carbon-starter {
   &--tiles {
     &__title {
-      margin-top: $spacing-05;
+      margin-top: styles.$spacing-05;
     }
   }
 
   &--about {
-    margin-top: $spacing-07;
+    margin-top: styles.$spacing-07;
   }
 
   &--features {
-    margin-top: $spacing-05;
+    margin-top: styles.$spacing-05;
   }
 
   &--tile {
-    margin-top: $spacing-05;
+    margin-top: styles.$spacing-05;
   }
 }

@@ -26,8 +26,8 @@ import {
   Switcher as SwitcherIcon,
 } from '@carbon/icons-react';
 
-const Welcome = () => {
-  return (
+const Welcome = () =>
+  (
     <Suspense fallback={<p>Loading welcome page...</p>}>
       <div className="main">
         {/* Header */}
@@ -47,13 +47,13 @@ const Welcome = () => {
           </HeaderNavigation>
           <HeaderGlobalBar>
             <HeaderGlobalAction aria-label="Search">
-              <Search size={20} />
+              <Search size={20}/>
             </HeaderGlobalAction>
             <HeaderGlobalAction
               aria-label="App Switcher"
               tooltipAlignment="end"
             >
-              <SwitcherIcon size={20} />
+              <SwitcherIcon size={20}/>
             </HeaderGlobalAction>
           </HeaderGlobalBar>
         </Header>
@@ -83,7 +83,7 @@ const Welcome = () => {
         {/* Main Content */}
         <Content className="carbon-starter--main">
           <Grid>
-            <Column lg={{ span: 16 }} md={{ span: 8 }} sm={4}>
+            <Column lg={{span: 16}} md={{span: 8}} sm={4}>
               <h2>Welcome to the FED@IBM React Carbon Starter</h2>
               <p>
                 This is a boilerplate and living guide for creating React
@@ -92,8 +92,8 @@ const Welcome = () => {
             </Column>
             <Column
               className="carbon-starter--about"
-              lg={{ span: 16 }}
-              md={{ span: 8 }}
+              lg={{span: 16}}
+              md={{span: 8}}
               sm={4}
             >
               <Grid>
@@ -111,12 +111,12 @@ const Welcome = () => {
                     title="Getting Started"
                   >
                     <strong>Purpose</strong>
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     This repository provides a simple example to help you get
                     started with the Carbon Design System and React.
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     It is designed to save time by offering a pre-configured
                     foundation for your projects.
                   </Tile>
@@ -124,12 +124,12 @@ const Welcome = () => {
                 <Column className="carbon-starter--tile" sm={2} md={4} lg={4}>
                   <Tile title="Consistency">
                     <strong>Stay Consistent</strong>
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     Use this as a reference to ensure your project aligns with
                     IBM&apos;s design standards.
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     It is flexible enough to adapt to your needs while promoting
                     a consistent user experience.
                   </Tile>
@@ -137,12 +137,12 @@ const Welcome = () => {
                 <Column className="carbon-starter--tile" sm={2} md={4} lg={4}>
                   <Tile title="Flexibility">
                     <strong>Customize as needed</strong>
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     This is meant to be a starting point and a living guide, not
                     a fixed framework.
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     You can modify the repository to fit your project
                     requirements or use it as inspiration for your own approach.
                   </Tile>
@@ -151,8 +151,8 @@ const Welcome = () => {
             </Column>
             <Column
               className="carbon-starter--features"
-              lg={{ span: 16 }}
-              md={{ span: 8 }}
+              lg={{span: 16}}
+              md={{span: 8}}
               sm={4}
             >
               <Grid>
@@ -186,6 +186,5 @@ const Welcome = () => {
       </div>
     </Suspense>
   );
-};
 
 export default Welcome;

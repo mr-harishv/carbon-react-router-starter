@@ -5,23 +5,23 @@ import { StaticRouter } from 'react-router';
 
 // App level imports
 import './App.scss';
-import { Router } from './routes';
+import { PageWrapper } from "./pages/wrapper/PageWrapper.jsx";
 
 /**
  * @param {string} url
  * @param {import('react-dom/server').RenderToPipeableStreamOptions} [options]
  */
 export function render(url, options) {
-  const { pipe, abort } = renderToPipeableStream(
+  const {pipe, abort} = renderToPipeableStream(
     <StrictMode>
-      <StaticRouter location={url}>
-        <Router />
-      </StaticRouter>
+        <StaticRouter location={url}>
+          <PageWrapper />
+        </StaticRouter>
     </StrictMode>,
     options
   );
 
   const head = '<meta name="description" content="Server-side rendered page">';
 
-  return { pipe, head, abort };
+  return {pipe, head, abort};
 }

@@ -5,13 +5,13 @@ import { BrowserRouter } from 'react-router';
 
 // App level imports
 import './App.scss';
-import { Router } from './routes';
+import { PageWrapper } from "./pages/wrapper/PageWrapper.jsx";
 
 hydrateRoot(
   document.getElementById('root'),
   <StrictMode>
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+      <BrowserRouter>
+        <PageWrapper />
+      </BrowserRouter>
   </StrictMode>
 );
