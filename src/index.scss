@@ -1,0 +1,49 @@
+@use '@carbon/react' with (
+  $font-path: '@ibm/plex'
+);
+
+@use '@carbon/styles/scss/theme';
+@use '@carbon/styles/scss/themes';
+@use '@carbon/themes/scss/tokens';
+
+/* Importing the component styles here will load them
+   before the JavaScript, which will make the page 
+   not "flashing style" - everything will be at the right
+   place from the start. In most case, avoid loading styles
+   from the JavaScript. */
+@use 'pages/welcome.scss';
+
+/* system preference theme by default */
+:root {
+  @include theme.theme(themes.$g10);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include theme.theme(themes.$g100);
+  }
+}
+
+/* TODO Stephane I think those are not needed with the new implementation
+   Let's review this */
+// :root[data-carbon-theme='white'] {
+//   @include theme.theme(themes.$white);
+// }
+
+// :root[data-carbon-theme='g10'] {
+//   @include theme.theme(themes.$g10);
+// }
+
+// :root[data-carbon-theme='g90'] {
+//   @include theme.theme(themes.$g90);
+// }
+
+// :root[data-carbon-theme='g100'] {
+//   @include theme.theme(themes.$g100);
+// }
+
+#root,
+body {
+  min-height: calc(100% - #{spacing-09});
+  background-color: tokens.$background;
+}

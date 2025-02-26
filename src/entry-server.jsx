@@ -4,7 +4,6 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 
 // App level imports
-import './App.scss';
 import { PageWrapper } from "./pages/wrapper/PageWrapper.jsx";
 
 /**
