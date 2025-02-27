@@ -1,4 +1,9 @@
-import { Suspense } from 'react';
+import {
+  LogoGithub,
+  MagicWand,
+  Search,
+  Switcher as SwitcherIcon,
+} from '@carbon/icons-react';
 import {
   AspectRatio,
   CodeSnippet,
@@ -20,13 +25,8 @@ import {
   SideNavMenuItem,
   Tile,
 } from '@carbon/react';
+import { Suspense } from 'react';
 
-import {
-  LogoGithub,
-  MagicWand,
-  Search,
-  Switcher as SwitcherIcon,
-} from '@carbon/icons-react';
 
 // import './welcome.scss';
 
