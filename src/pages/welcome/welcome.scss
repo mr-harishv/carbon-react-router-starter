@@ -1,0 +1,18 @@
+@use '@carbon/layout' as *;
+@use '@carbon/type' as *;
+
+.cs--welcome__about {
+  margin-block-start: $spacing-07;
+}
+
+.cs--welcome__features,
+.cs--welcome__tile,
+.cs--welcome__heading {
+  margin-block-start: $spacing-05;
+}
+
+.cs--welcome {
+  @include default-type();
+
+  height: calc(100vh - $spacing-09);
+}

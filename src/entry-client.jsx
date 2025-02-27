@@ -4,7 +4,7 @@ import { hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 
 // App level imports
-import { PageWrapper } from "./pages/wrapper/PageWrapper.jsx";
+import { PageWrapper } from "./components/wrapper/PageWrapper.jsx";
 
 hydrateRoot(
   document.getElementById('root'),

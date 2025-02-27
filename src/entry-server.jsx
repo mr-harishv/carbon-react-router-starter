@@ -4,7 +4,7 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 
 // App level imports
-import { PageWrapper } from "./pages/wrapper/PageWrapper.jsx";
+import { PageWrapper } from "./components/wrapper/PageWrapper.jsx";
 
 /**
  * @param {string} url

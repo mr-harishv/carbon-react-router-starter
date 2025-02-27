@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router';
 
-import Welcome from '../pages/Welcome.jsx';
+import Welcome from '../pages/welcome/Welcome.jsx';
 
 export const Router = () => {
   return (

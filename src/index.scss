@@ -11,7 +11,7 @@
    not "flashing style" - everything will be at the right
    place from the start. In most case, avoid loading styles
    from the JavaScript. */
-@use 'pages/welcome.scss';
+@use 'pages/welcome/welcome.scss';
 
 /* system preference theme by default */
 :root {
