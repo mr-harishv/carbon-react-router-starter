@@ -1,0 +1,19 @@
+@use '@carbon/layout' as *;
+@use '@carbon/type' as *;
+@use '@carbon/themes/scss/tokens' as *;
+
+.cs--welcome-header {
+  padding-inline: $spacing-08;
+  margin-block-end: $spacing-09;
+}
+
+.cs--welcome-header__image-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #001d6c 20%, rgba(0, 0, 0, 0) 50%);
+}
+
+.cs--welcome-header__logo {
+  height: calc(4 * #{$spacing-09});
+}

@@ -1,0 +1,5 @@
+@use '@carbon/layout' as *;
+
+.cs--footer {
+  padding-block-start: calc(2 * #{$spacing-09});
+}

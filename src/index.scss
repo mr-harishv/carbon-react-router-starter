@@ -2,6 +2,7 @@
   $font-path: '@ibm/plex'
 );
 
+@use '@carbon/layout' as *;
 @use '@carbon/styles/scss/theme';
 @use '@carbon/styles/scss/themes';
 @use '@carbon/themes/scss/tokens';
@@ -12,6 +13,9 @@
    place from the start. In most case, avoid loading styles
    from the JavaScript. */
 @use 'pages/welcome/welcome.scss';
+
+@use 'components/welcomeHeader/welcomeHeader.scss';
+@use 'components/footer/footer.scss';
 
 /* system preference theme by default */
 :root {
@@ -42,8 +46,8 @@
 //   @include theme.theme(themes.$g100);
 // }
 
-#root,
 body {
-  min-height: calc(100% - #{spacing-09});
   background-color: tokens.$background;
+
+  height: calc(100% - #{$spacing-09});
 }

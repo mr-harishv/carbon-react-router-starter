@@ -30,6 +30,9 @@ import {
   Switcher as SwitcherIcon,
 } from '@carbon/icons-react';
 
+import { WelcomeHeader } from '../../components/welcomeHeader/WelcomeHeader';
+import { Footer } from '../../components/footer/Footer';
+
 // The styles are imported into index.scss by default.
 // Do the same unless you have a good reason not to.
 // import './welcome.scss';
@@ -78,8 +81,7 @@ const Welcome = () => {
       </Header>
       <SideNav aria-label="Side navigation"
                expanded={isSideNavExpanded}
-               isPersistent={false}
-               isRail={true}>
+               isPersistent={false}>
         <SideNavItems>
           <HeaderSideNavItems hasDivider>
             <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
@@ -104,17 +106,13 @@ const Welcome = () => {
 
       {/* Main Content */}
       <Content className="cs--welcome">
+        <WelcomeHeader />
         <Grid>
-          <Column lg={{span: 16}} md={{span: 8}} sm={4}>
-            <h1>Welcome to the fed-at-ibm Carbon React starter template</h1>
-            <p>
-              This is a boilerplate and a living guide for creating React
-              applications with the Carbon Design System.
-            </p>
+          <Column sm={4} md={4} lg={8} xlg={4}>
+            <h3 className="cs--welcome__heading">↳ Run the template</h3>
           </Column>
-          <Column lg={{ span: 16 }} md={{ span: 8 }} sm={4}>
-            <h3 className="cs--welcome__heading">Run this code</h3>
-            <p>This code requires node v.[TODO]</p>
+          <Column sm={4} md={8} lg={8} xlg={8}>
+            <p>This code requires node v.22</p>
             <CodeSnippet type="single" feedback="Copied to clipboard">
               npm i
             </CodeSnippet>
@@ -122,6 +120,7 @@ const Welcome = () => {
               npm run dev
             </CodeSnippet>
           </Column>
+
           <Column
             className="cs--welcome__about"
             lg={{span: 16}}
@@ -130,7 +129,7 @@ const Welcome = () => {
           >
             <Grid>
               <Column sm={4} md={4} lg={8} xlg={4}>
-                <h3 className="cs--welcome__heading">What is this about?</h3>
+                <h3 className="cs--welcome__heading">↳ What is this about?</h3>
               </Column>
               <Column sm={4} md={4} lg={8} xlg={4}>
                 {/* Most containers in Carbon app should be sized through the
@@ -187,7 +186,7 @@ const Welcome = () => {
                 md={4}
                 lg={4}
               >
-                <h3 className="cs--welcome__heading">Features</h3>
+                <h3 className="cs--welcome__heading">↳ Features</h3>
               </Column>
               <Column className="cs--welcome__tile" sm={2} md={4} lg={4}>
                 <Tile title="Flexibility">
@@ -206,6 +205,7 @@ const Welcome = () => {
               </Column>
             </Grid>
           </Column>
+          <Footer />
         </Grid>
       </Content>
   </Suspense>

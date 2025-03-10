@@ -1,5 +1,24 @@
 @use '@carbon/layout' as *;
 @use '@carbon/type' as *;
+@use '@carbon/colors' as *;
+
+.cs--welcome {
+  @include default-type();
+}
+
+.cs--welcome h1 {
+  @include type-style('heading-07');
+  margin-block-end: $spacing-08;
+}
+
+.cs--welcome h3 {
+  margin-block-end: $spacing-05;
+}
+
+.cs--welcome p {
+  margin-block-end: $spacing-05;
+  margin-inline-end: $spacing-08;
+}
 
 .cs--welcome__about {
   margin-block-start: $spacing-07;
@@ -11,8 +30,10 @@
   margin-block-start: $spacing-05;
 }
 
-.cs--welcome {
-  @include default-type();
-
-  height: calc(100vh - $spacing-09);
+.cs--welcome__tile.cds--aspect-ratio {
+ background-color: $blue-80;
+    
+  @media (min-width: 320px) {
+    aspect-ratio: 4 / 3;
+  }
 }
