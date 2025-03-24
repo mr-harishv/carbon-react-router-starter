@@ -1,5 +1,7 @@
 # carbon-starter
 
+<img height=48px src="public/icon.dark.svg"></img>
+
 This project is intended as a guiding template to get you and your team started with a fresh project basing on the Carbon Design System.
 
 It is intended to be helping, not dictating. If you don't know exactly what to use, feel free to take this as a starting point. You can of course swap anything in this stack with your preferred tool if you want to.
