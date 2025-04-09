@@ -1,4 +1,4 @@
-# carbon-starter
+# carbon-react-starter
 
 <img height=48px src="public/icon.dark.svg"></img>
 
