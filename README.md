@@ -9,8 +9,9 @@ It is intended to be helping, not dictating. If you don't know exactly what to u
 ## Get started
 
 1. Clone this template
-1. Install the dependencies. *Requires Node 22*
+1. Install the dependencies. *Requires Node 20*
     ```
+    nvm i # Optional, but desirable to make sure you have the supported version
     npm i
     ```
 1. Run the template
