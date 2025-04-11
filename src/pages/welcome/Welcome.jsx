@@ -40,7 +40,7 @@ import { Footer } from '../../components/footer/Footer';
 const Welcome = () => {
   const [isSideNavExpanded, setIsSideNavExpanded] = useState(false);
 
-  const toggleNav = (event) => {
+  const toggleNav = () => {
     setIsSideNavExpanded(!isSideNavExpanded);
   }
 

@@ -26,8 +26,7 @@ export const WelcomeHeader = () => {
       </Column>
       <Column sm={4} md={8} lg={8}>
         <AspectRatio ratio="16x9" className="cs--welcome-header__image-banner">
-          <img src="/icon.dark.svg"
-               className="cs--welcome-header__logo"></img>
+          <img src="/icon.dark.svg" className="cs--welcome-header__logo" alt="fed-at-ibm logo" />
         </AspectRatio>
       </Column>
     </Grid>
