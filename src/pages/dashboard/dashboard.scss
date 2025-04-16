@@ -1,0 +1,54 @@
+@use '@carbon/grid' as *;
+@use '@carbon/layout' as *;
+@use '@carbon/type' as *;
+@use '@carbon/colors' as *;
+
+.cs--dashboard {
+  @include default-type();
+
+  margin-block-start: $spacing-09;
+  padding-block-start: $spacing-05;
+
+  @include breakpoint-down('md') {
+      padding-inline: 0;
+  }
+}
+
+.cs--dashboard h1,
+.cs--dashboard dd {
+  @include type-style('heading-07');
+  margin-block-end: $spacing-08;
+}
+
+.cs--dashboard h3 {
+  margin-block-end: $spacing-05;
+}
+
+.cs--dashboard p,
+.cs--dashboard dt {
+  margin-block-end: $spacing-05;
+  margin-inline-end: $spacing-08;
+}
+
+.cs--dashboard dt {
+  @include type-style('label-02');
+}
+
+.cs--dashboard__tile {
+  margin-block: $spacing-05;
+  height: calc(100% - $spacing-07); // Sets common height for the row, a min-height should be added as well.
+}
+
+/* While the carbon documentation states that most containers should be
+   sized through the aspect ratios defined in the design language,
+   the practice shows a fixed height often works better. Choose a
+   height that is a multiple of one of the spacing tokens to keep the
+   vertical rhythm */
+.cs--dashboard__tile--number {
+  min-height: calc(2 * $spacing-10);
+}
+
+/* Same as for previous declaration */
+.cs--dashboard__tile--data {
+  min-height: calc(8 * $spacing-10);
+}

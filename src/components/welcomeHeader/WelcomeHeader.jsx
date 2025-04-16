@@ -1,13 +1,13 @@
-import { AspectRatio, Button, Column, Grid, Tile } from "@carbon/react";
+import { AspectRatio, Button, Column, Grid } from "@carbon/react";
 
 import { ArrowRight } from "@carbon/icons-react";
 
 export const WelcomeHeader = () => {
 
   return (
-    <Grid condensed className="cs--welcome-header">
+    <Grid className="cs--welcome-header">
       <Column sm={4} md={8} lg={8}>
-        <AspectRatio ratio="16x9" >
+        <AspectRatio as="section" ratio="16x9" >
           <h1 className="cs--welcome-header__title">
             Welcome to the Carbon React starter template
           </h1>

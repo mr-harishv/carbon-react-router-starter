@@ -1,9 +1,17 @@
+@use '@carbon/grid' as *;
 @use '@carbon/layout' as *;
 @use '@carbon/type' as *;
 @use '@carbon/colors' as *;
 
 .cs--welcome {
   @include default-type();
+
+  margin-block-start: $spacing-09;
+  padding-block-start: $spacing-05;
+
+  @include breakpoint-down('md') {
+      padding-inline: 0;
+  }
 }
 
 .cs--welcome h1 {
@@ -30,10 +38,11 @@
   margin-block-start: $spacing-05;
 }
 
-.cs--welcome__tile.cds--aspect-ratio {
- background-color: $blue-80;
-    
-  @media (min-width: 320px) {
-    aspect-ratio: 4 / 3;
-  }
+.cs--welcome__tile {
+  min-height: calc(4 * $spacing-10);
+  height: calc(100% - $spacing-05);
+}
+
+.cs--welcome__tile--highlight {
+  background-color: $blue-80;
 }

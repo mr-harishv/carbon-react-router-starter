@@ -1,0 +1,97 @@
+import { useState } from "react";
+import {
+  Header,
+  HeaderGlobalAction,
+  HeaderGlobalBar,
+  HeaderMenu,
+  HeaderMenuButton,
+  HeaderMenuItem,
+  HeaderName,
+  HeaderNavigation,
+  HeaderSideNavItems,
+  SideNav,
+  SideNavItems,
+  SideNavLink,
+  SideNavMenu,
+  SideNavMenuItem,
+  SkipToContent,
+} from "@carbon/react";
+
+import {
+  LogoGithub,
+  MagicWand,
+  Search,
+  Switcher as SwitcherIcon,
+} from "@carbon/icons-react";
+
+export const Nav = () => {
+  const [isSideNavExpanded, setIsSideNavExpanded] = useState(false);
+
+  const toggleNav = () => {
+    // Reason for this implementation of state change through an updater function:
+    // https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state
+    setIsSideNavExpanded((isExpanded) => !isExpanded);
+  };
+
+  return (
+    <>
+      <Header aria-label="fed-at-ibm">
+        <SkipToContent />
+        <HeaderMenuButton
+          aria-label={isSideNavExpanded ? "Close menu" : "Open menu"}
+          onClick={toggleNav}
+          isCollapsible={true}
+          isActive={isSideNavExpanded}
+          aria-expanded={isSideNavExpanded}
+        />
+        <HeaderName href="/" prefix="Carbon">
+          React starter template
+        </HeaderName>
+        <HeaderNavigation aria-label="fed-at-ibm">
+          <HeaderMenuItem href="/dashboard">Dashboard</HeaderMenuItem>
+          <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
+          <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
+          <HeaderMenu aria-label="Link 4" menuLinkName="Link 4">
+            <HeaderMenuItem href="#one">Sub-link 1</HeaderMenuItem>
+            <HeaderMenuItem href="#two">Sub-link 2</HeaderMenuItem>
+            <HeaderMenuItem href="#three">Sub-link 3</HeaderMenuItem>
+          </HeaderMenu>
+        </HeaderNavigation>
+        <HeaderGlobalBar>
+          <HeaderGlobalAction aria-label="Search">
+            <Search size={20} />
+          </HeaderGlobalAction>
+          <HeaderGlobalAction aria-label="App switcher" tooltipAlignment="end">
+            <SwitcherIcon size={20} />
+          </HeaderGlobalAction>
+        </HeaderGlobalBar>
+      </Header>
+      <SideNav
+        aria-label="Side navigation"
+        expanded={isSideNavExpanded}
+        isPersistent={false}
+      >
+        <SideNavItems>
+          <HeaderSideNavItems hasDivider>
+            <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
+            <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
+            <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
+            <HeaderMenu aria-label="Link 4" menuLinkName="Link 4">
+              <HeaderMenuItem href="#">Sub-link 1</HeaderMenuItem>
+              <HeaderMenuItem href="#">Sub-link 2</HeaderMenuItem>
+              <HeaderMenuItem href="#">Sub-link 3</HeaderMenuItem>
+            </HeaderMenu>
+          </HeaderSideNavItems>
+          <SideNavMenu renderIcon={MagicWand} title="Getting started">
+            <SideNavMenuItem href="#">Install</SideNavMenuItem>
+            <SideNavMenuItem href="#">Guide</SideNavMenuItem>
+            <SideNavMenuItem href="#">FAQ</SideNavMenuItem>
+          </SideNavMenu>
+          <SideNavLink renderIcon={LogoGithub} href="#">
+            GitHub
+          </SideNavLink>
+        </SideNavItems>
+      </SideNav>
+    </>
+  );
+};

@@ -1,111 +1,27 @@
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import {
-  AspectRatio,
   CodeSnippet,
   Column,
-  Content,
   Grid,
-  Header,
-  HeaderGlobalAction,
-  HeaderGlobalBar,
-  HeaderMenu,
-  HeaderMenuButton,
-  HeaderMenuItem,
-  HeaderName,
-  HeaderNavigation,
-  HeaderSideNavItems,
-  SideNav,
-  SideNavItems,
-  SideNavLink,
-  SideNavMenu,
-  SideNavMenuItem,
-  SkipToContent,
   Tile,
 } from '@carbon/react';
 
-import {
-  LogoGithub,
-  MagicWand,
-  Search,
-  Switcher as SwitcherIcon,
-} from '@carbon/icons-react';
-
 import { WelcomeHeader } from '../../components/welcomeHeader/WelcomeHeader';
 import { Footer } from '../../components/footer/Footer';
+import { Nav } from '../../components/nav/Nav';
 
 // The styles are imported into index.scss by default.
 // Do the same unless you have a good reason not to.
 // import './welcome.scss';
 
 const Welcome = () => {
-  const [isSideNavExpanded, setIsSideNavExpanded] = useState(false);
-
-  const toggleNav = () => {
-    setIsSideNavExpanded(!isSideNavExpanded);
-  }
 
   return (
     <Suspense fallback={<p>Loading welcome page...</p>}>
-      {/* Header */}
-      <Header aria-label="fed-at-ibm">
-        <SkipToContent />
-        <HeaderMenuButton aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
-                          onClick={toggleNav}
-                          isCollapsible={true}
-                          isActive={isSideNavExpanded}
-                          aria-expanded={isSideNavExpanded} />
-        <HeaderName href="#" prefix="Carbon">
-          React starter template
-        </HeaderName>
-        <HeaderNavigation aria-label="fed-at-ibm">
-          <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
-          <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
-          <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
-          <HeaderMenu aria-label="Link 4" menuLinkName="Link 4">
-            <HeaderMenuItem href="#one">Sub-link 1</HeaderMenuItem>
-            <HeaderMenuItem href="#two">Sub-link 2</HeaderMenuItem>
-            <HeaderMenuItem href="#three">Sub-link 3</HeaderMenuItem>
-          </HeaderMenu>
-        </HeaderNavigation>
-        <HeaderGlobalBar>
-          <HeaderGlobalAction aria-label="Search">
-            <Search size={20}/>
-          </HeaderGlobalAction>
-          <HeaderGlobalAction
-            aria-label="App Switcher"
-            tooltipAlignment="end"
-          >
-            <SwitcherIcon size={20}/>
-          </HeaderGlobalAction>
-        </HeaderGlobalBar>
-      </Header>
-      <SideNav aria-label="Side navigation"
-               expanded={isSideNavExpanded}
-               isPersistent={false}>
-        <SideNavItems>
-          <HeaderSideNavItems hasDivider>
-            <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
-            <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
-            <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
-            <HeaderMenu aria-label="Link 4" menuLinkName="Link 4">
-              <HeaderMenuItem href="#">Sub-link 1</HeaderMenuItem>
-              <HeaderMenuItem href="#">Sub-link 2</HeaderMenuItem>
-              <HeaderMenuItem href="#">Sub-link 3</HeaderMenuItem>
-            </HeaderMenu>
-          </HeaderSideNavItems>
-          <SideNavMenu renderIcon={MagicWand} title="Getting started">
-            <SideNavMenuItem href="#">Install</SideNavMenuItem>
-            <SideNavMenuItem href="#">Guide</SideNavMenuItem>
-            <SideNavMenuItem href="#">FAQ</SideNavMenuItem>
-          </SideNavMenu>
-          <SideNavLink renderIcon={LogoGithub} href="#">
-            GitHub
-          </SideNavLink>
-        </SideNavItems>
-      </SideNav>
+      <Nav />
 
       {/* Main Content */}
-      <Content className="cs--welcome">
+      <section className="cs--welcome">
         <WelcomeHeader />
         <Grid>
           <Column sm={4} md={4} lg={8} xlg={4}>
@@ -121,85 +37,74 @@ const Welcome = () => {
             </CodeSnippet>
           </Column>
 
-          <Column
-            className="cs--welcome__about"
-            lg={{span: 16}}
-            md={{span: 8}}
-            sm={4}
-          >
+          <Column className="cs--welcome__about" sm={4} md={8} lg={16}>
             <Grid>
               <Column sm={4} md={4} lg={8} xlg={4}>
                 <h3 className="cs--welcome__heading">↳ What is this about?</h3>
               </Column>
+              {/* While the carbon documentation states that most containers should be
+                  sized through the aspect ratios defined in the design language,
+                  the practice shows a fixed height often works better. Choose a
+                  height that is a multiple of one of the spacing tokens to keep the
+                  vertical rhythm */}
               <Column sm={4} md={4} lg={8} xlg={4}>
-                {/* Most containers in Carbon app should be sized through the
-                    AspectRatio component */}
-                <AspectRatio as={Tile} ratio="4x3" className="cs--welcome__tile">
+                <Tile className="cs--welcome__tile cs--welcome__tile--highlight">
                   <strong>Purpose</strong>
-                  <br/>
-                  <br/>
+                  <br />
+                  <br />
                   This repository provides a simple example to help you get
                   started with the Carbon Design System and React.
-                  <br/>
-                  <br/>
+                  <br />
+                  <br />
                   It is designed to save time by offering a pre-configured
                   foundation for your projects.
-                </AspectRatio>
+                </Tile>
               </Column>
               <Column sm={4} md={4} lg={8} xlg={4}>
-                <AspectRatio as={Tile} ratio="4x3" className="cs--welcome__tile">
+                <Tile className="cs--welcome__tile cs--welcome__tile--highlight">
                   <strong>Stay consistent</strong>
-                  <br/>
-                  <br/>
+                  <br />
+                  <br />
                   Use this as a reference to ensure your project aligns with
                   IBM&apos;s design standards.
-                  <br/>
-                  <br/>
-                  It is flexible enough to adapt to your needs while promoting
-                  a consistent user experience.
-                </AspectRatio>
+                  <br />
+                  <br />
+                  It is flexible enough to adapt to your needs while promoting a
+                  consistent user experience.
+                </Tile>
               </Column>
               <Column sm={4} md={4} lg={8} xlg={4}>
-                <AspectRatio as={Tile} ratio="4x3" className="cs--welcome__tile">
+                <Tile className="cs--welcome__tile cs--welcome__tile--highlight">
                   <strong>Customize as needed</strong>
-                  <br/>
-                  <br/>
-                  This is meant to be a starting point and a living guide, not
-                  a fixed framework.
-                  <br/>
-                  <br/>
-                  You can modify the repository to fit your project
-                  requirements or use it as inspiration for your own approach.
-                </AspectRatio>
+                  <br />
+                  <br />
+                  This is meant to be a starting point and a living guide, not a
+                  fixed framework.
+                  <br />
+                  <br />
+                  You can modify the repository to fit your project requirements
+                  or use it as inspiration for your own approach.
+                </Tile>
               </Column>
             </Grid>
           </Column>
-          <Column
-            className="cs--welcome__features"
-            lg={{span: 16}}
-            md={{span: 8}}
-            sm={4}
-          >
+          <Column className="cs--welcome__features" sm={4} md={8} lg={16}>
             <Grid>
-              <Column
-                sm={2}
-                md={4}
-                lg={4}
-              >
+              <Column sm={2} md={4} lg={4}>
                 <h3 className="cs--welcome__heading">↳ Features</h3>
               </Column>
               <Column className="cs--welcome__tile" sm={2} md={4} lg={4}>
-                <Tile title="Flexibility">
+                <Tile title="Feature 1">
                   <strong>React 18 SSR</strong>
                 </Tile>
               </Column>
               <Column className="cs--welcome__tile" sm={2} md={4} lg={4}>
-                <Tile title="Flexibility">
+                <Tile title="Feature 2">
                   <strong>Carbon Design v11</strong>
                 </Tile>
               </Column>
               <Column className="cs--welcome__tile" sm={2} md={4} lg={4}>
-                <Tile title="Flexibility">
+                <Tile title="Feature 3">
                   <strong>Vite 6.0</strong>
                 </Tile>
               </Column>
@@ -207,8 +112,8 @@ const Welcome = () => {
           </Column>
           <Footer />
         </Grid>
-      </Content>
-  </Suspense>
+      </section>
+    </Suspense>
   );
 }
 
