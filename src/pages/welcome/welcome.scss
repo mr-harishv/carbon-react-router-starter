@@ -1,7 +1,6 @@
-@use '@carbon/grid' as *;
-@use '@carbon/layout' as *;
-@use '@carbon/type' as *;
-@use '@carbon/colors' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/breakpoint' as *;
 
 .cs--welcome {
   @include default-type();
@@ -10,7 +9,7 @@
   padding-block-start: $spacing-05;
 
   @include breakpoint-down('md') {
-      padding-inline: 0;
+    padding-inline: 0;
   }
 }
 
@@ -44,5 +43,5 @@
 }
 
 .cs--welcome__tile--highlight {
-  background-color: $blue-80;
+  background-color: var(--cs--brand);
 }

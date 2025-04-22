@@ -1,17 +1,25 @@
-const useThemes = () => {
-  const theme = 'dark';
+import { usePrefersDarkScheme } from '@carbon/react';
+import { useEffect, useState } from 'react';
 
-  if (theme === 'dark') {
-    const primaryTheme = 'g100';
-    const secondaryTheme = 'g90';
+export const useThemes = () => {
+  const prefersDark = usePrefersDarkScheme();
+  const [themeReady, setThemeReady] = useState(false);
 
-    return { primaryTheme, secondaryTheme };
-  }
+  // Will not resolve to actual theme preferences until after first render
+  // monitor themeReady to make use of primary and secondary theme.
+  const [primaryTheme, setPrimaryTheme] = useState('g100');
+  const [secondaryTheme, setSecondaryTheme] = useState('g90');
 
-  const primaryTheme =  'g10';
-  const secondaryTheme =  'white';
+  useEffect(() => {
+    if (prefersDark) {
+      setPrimaryTheme('g100');
+      setSecondaryTheme('g90');
+    } else {
+      setPrimaryTheme('g10');
+      setSecondaryTheme('white');
+    }
+    setThemeReady(true);
+  }, [prefersDark]);
 
-  return { primaryTheme, secondaryTheme };
+  return { primaryTheme, secondaryTheme, themeReady };
 };
-
-export default useThemes;

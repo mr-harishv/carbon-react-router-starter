@@ -1,4 +1,4 @@
-@use '@carbon/layout' as *;
+@use '@carbon/react/scss/spacing' as *;
 
 .cs--footer {
   padding-block-start: calc(2 * #{$spacing-09});

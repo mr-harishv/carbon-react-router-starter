@@ -1,6 +1,6 @@
-@use '@carbon/layout' as *;
-@use '@carbon/type' as *;
-@use '@carbon/themes/scss/tokens' as *;
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/theme' as *;
 
 .cs--welcome-header {
   margin-block-end: $spacing-09;
@@ -10,9 +10,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, #001d6c 20%, rgba(0, 0, 0, 0) 50%);
+  background: radial-gradient(
+    circle,
+    var(--cs--brand-alt) 20%,
+    rgba(0, 0, 0, 0) 50%
+  );
 }
 
 .cs--welcome-header__logo {
   height: calc(4 * #{$spacing-09});
+  filter: var(--cs--logo-filter);
 }

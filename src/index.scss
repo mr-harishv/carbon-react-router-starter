@@ -1,11 +1,10 @@
 @use '@carbon/react' with (
   $font-path: '@ibm/plex'
 );
-
-@use '@carbon/layout' as *;
-@use '@carbon/styles/scss/theme';
-@use '@carbon/styles/scss/themes';
-@use '@carbon/themes/scss/tokens';
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/themes';
+@use '@carbon/react/scss/colors' as *;
 
 /* Importing the component styles here will load them
    before the JavaScript, which will make the page 
@@ -20,35 +19,24 @@
 
 /* system preference theme by default */
 :root {
-  @include theme.theme(themes.$g10);
+  @include theme(themes.$g10);
+
+  --cs--brand: #{$blue-30};
+  --cs--brand-alt: #{$blue-20};
+  --cs--logo-filter: invert(100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include theme.theme(themes.$g100);
+    @include theme(themes.$g100);
+
+    --cs--brand: #{$blue-80};
+    --cs--brand-alt: #{$blue-90};
+    --cs--logo-filter: initial;
   }
 }
 
-/* TODO Stephane I think those are not needed with the new implementation
-   Let's review this */
-// :root[data-carbon-theme='white'] {
-//   @include theme.theme(themes.$white);
-// }
-
-// :root[data-carbon-theme='g10'] {
-//   @include theme.theme(themes.$g10);
-// }
-
-// :root[data-carbon-theme='g90'] {
-//   @include theme.theme(themes.$g90);
-// }
-
-// :root[data-carbon-theme='g100'] {
-//   @include theme.theme(themes.$g100);
-// }
-
 body {
-  background-color: tokens.$background;
-
+  background-color: $background;
   height: calc(100% - #{$spacing-09});
 }
