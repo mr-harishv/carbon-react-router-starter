@@ -10,6 +10,7 @@
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
     "lighthouse": "lhci collect",
     "lint:es": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:style": "stylelint './**/*.scss'",
     "lint:format": "prettier . --write --ignore-unknown --no-error-on-unmatched-pattern --log-level warn",
     "lint:spell": "cspell lint --quiet \"**\"",
     "preview:prod": "cross-env NODE_ENV=production node server",
@@ -30,6 +31,7 @@
     "sirv": "^3.0.0"
   },
   "devDependencies": {
+    "@double-great/stylelint-a11y": "^3.0.4",
     "@eslint/js": "^9.21.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -49,6 +51,10 @@
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.3",
     "sass-embedded": "^1.85.1",
+    "stylelint": "^16.18.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-plugin-carbon-tokens": "^3.2.3",
+    "stylelint-use-logical-spec": "^5.0.1",
     "vite": "^6.2.6"
   },
   "lint-staged": {

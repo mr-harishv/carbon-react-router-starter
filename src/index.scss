@@ -11,32 +11,31 @@
    not "flashing style" - everything will be at the right
    place from the start. In most case, avoid loading styles
    from the JavaScript. */
-@use 'pages/welcome/welcome.scss';
-@use 'pages/dashboard/dashboard.scss';
-
-@use 'components/welcomeHeader/welcomeHeader.scss';
-@use 'components/footer/footer.scss';
+@use 'pages/welcome/welcome';
+@use 'pages/dashboard/dashboard';
+@use 'components/welcomeHeader/welcomeHeader';
+@use 'components/footer/footer';
 
 /* system preference theme by default */
 :root {
   @include theme(themes.$g10);
 
-  --cs--brand: #{$blue-30};
-  --cs--brand-alt: #{$blue-20};
-  --cs--logo-filter: invert(100%);
+  --cs-brand: #{$blue-30};
+  --cs-brand-alt: #{$blue-20};
+  --cs-logo-filter: invert(100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     @include theme(themes.$g100);
 
-    --cs--brand: #{$blue-80};
-    --cs--brand-alt: #{$blue-90};
-    --cs--logo-filter: initial;
+    --cs-brand: #{$blue-80};
+    --cs-brand-alt: #{$blue-90};
+    --cs-logo-filter: initial;
   }
 }
 
 body {
   background-color: $background;
-  height: calc(100% - #{$spacing-09});
+  block-size: calc(100% - #{$spacing-09});
 }

@@ -3,7 +3,7 @@
 @use '@carbon/react/scss/breakpoint' as *;
 
 .cs--welcome {
-  @include default-type();
+  @include default-type;
 
   margin-block-start: $spacing-09;
   padding-block-start: $spacing-05;
@@ -15,6 +15,7 @@
 
 .cs--welcome h1 {
   @include type-style('heading-07');
+
   margin-block-end: $spacing-08;
 }
 
@@ -38,10 +39,11 @@
 }
 
 .cs--welcome__tile {
-  min-height: calc(4 * $spacing-10);
-  height: calc(100% - $spacing-05);
+  min-block-size: calc(4 * $spacing-10);
+  block-size: calc(100% - $spacing-05);
 }
 
 .cs--welcome__tile--highlight {
-  background-color: var(--cs--brand);
+  /* stylelint-disable-next-line carbon/theme-use -- cs-brand color permitted in starter */
+  background-color: var(--cs-brand);
 }
