@@ -10,6 +10,7 @@
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
     "lighthouse": "lhci collect",
     "lint:es": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:spell": "cspell lint --quiet \"**\"",
     "preview:prod": "cross-env NODE_ENV=production node server",
     "preview": "cross-env NODE_ENV=local node server",
     "prepare": "husky"
@@ -33,6 +34,7 @@
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.8.0",
     "cross-env": "^7.0.3",
+    "cspell": "^8.18.1",
     "eslint": "^9.21.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",

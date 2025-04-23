@@ -1,0 +1,43 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "dictionaries": ["carbon", "project", "people"],
+  "dictionaryDefinitions": [
+    {
+      "name": "carbon",
+      "path": "./cspell-dictionaries/carbon.txt"
+    },
+    {
+      "name": "project",
+      "path": "./cspell-dictionaries/project.txt"
+    },
+    {
+      "name": "people",
+      "path": "./cspell-dictionaries/people.txt"
+    }
+  ],
+  "enabledLanguageIds": [
+    "git-commit",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml",
+    "mdx"
+  ],
+  "ignorePaths": [
+    "cspell-dictionaries",
+    "dist",
+    "package.json",
+    "*.snap",
+    "*.log"
+  ],
+  "words": []
+}
