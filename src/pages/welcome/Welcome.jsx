@@ -1,10 +1,5 @@
 import { Suspense } from 'react';
-import {
-  CodeSnippet,
-  Column,
-  Grid,
-  Tile,
-} from '@carbon/react';
+import { CodeSnippet, Column, Grid, Tile } from '@carbon/react';
 
 import { WelcomeHeader } from '../../components/welcomeHeader/WelcomeHeader';
 import { Footer } from '../../components/footer/Footer';
@@ -15,7 +10,6 @@ import { Nav } from '../../components/nav/Nav';
 // import './welcome.scss';
 
 const Welcome = () => {
-
   return (
     <Suspense fallback={<p>Loading welcome page...</p>}>
       <Nav />
@@ -115,6 +109,6 @@ const Welcome = () => {
       </section>
     </Suspense>
   );
-}
+};
 
 export default Welcome;

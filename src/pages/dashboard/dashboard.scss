@@ -10,7 +10,7 @@
   padding-block-start: $spacing-05;
 
   @include breakpoint-down('md') {
-      padding-inline: 0;
+    padding-inline: 0;
   }
 }
 
@@ -36,7 +36,9 @@
 
 .cs--dashboard__tile {
   margin-block: $spacing-05;
-  height: calc(100% - $spacing-07); // Sets common height for the row, a min-height should be added as well.
+  height: calc(
+    100% - $spacing-07
+  ); // Sets common height for the row, a min-height should be added as well.
 }
 
 /* While the carbon documentation states that most containers should be

@@ -9,9 +9,13 @@ import importPlugin from 'eslint-plugin-import';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
-  /* added (eslint-plugin-jsx-a11y) - ensures attributes needed for accessibility are added */
+/* added (eslint-plugin-jsx-a11y) - ensures attributes needed for accessibility are added */
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import globals from 'globals';
+/* added eslint-plugin-prettier to run prettier as an ESLint plugin April 15th 2025 */
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+/* added eslint-config-prettier to turn off conflicting rules April 15th 2025 */
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export default [
   { ignores: ['dist', 'vite.config.js'] },
@@ -45,6 +49,10 @@ export default [
   pluginReactRefresh.configs.vite,
   /* added (eslint-plugin-jsx-a11y) - ensures attributes needed for accessibility are added */
   eslintPluginJsxA11y.flatConfigs.recommended,
+  /* added eslint-plugin-prettier to run prettier as an ESLint plugin April 15th 2025 */
+  eslintPluginPrettierRecommended,
+  /* added eslint-config-prettier to turn off conflicting rules April 15th 2025 */
+  eslintConfigPrettier,
   {
     rules: {
       ...pluginJs.configs.recommended.rules,

@@ -9,15 +9,15 @@ It is intended to be helping, not dictating. If you don't know exactly what to u
 ## Get started
 
 1. Clone this template
-1. Install the dependencies. *Requires Node 20*
-    ```
-    nvm i # Optional, but desirable to make sure you have the supported version
-    npm i
-    ```
+1. Install the dependencies. _Requires Node 20_
+   ```
+   nvm i # Optional, but desirable to make sure you have the supported version
+   npm i
+   ```
 1. Run the template
-    ```
-    npm run dev
-    ````
+   ```
+   npm run dev
+   ```
 
 → Good, you're already set up!
 
@@ -28,6 +28,7 @@ Create a production build with `npm run build`, but be aware that a server runti
 ### Philosophy
 
 This project is driven by a few principles:
+
 - Fast to instantiate, easy to understand
 - Usable by a large set of projects
 - Opinionated but not dictating
@@ -44,7 +45,7 @@ Ultimately, we want to save you time by avoiding you weeks of research to build 
 - **Server-side rendering:** server-side rendering is a critical component for most applications to improve their performance. This means here that **the project is separated in two parts - client-side and server-side**.
 
 - **Quality and productivity helpers:** this project contains quite a few helpers to help consistency, productivity and speed. For example it has templates for unit and end-to-end testing. It also contains linters so your team doesn't have to lose time on code formatting.
-With time we plan to add more helpers to help you monitor your accessibility and front-end performance.
+  With time we plan to add more helpers to help you monitor your accessibility and front-end performance.
 
 ## Keeping this up to date
 

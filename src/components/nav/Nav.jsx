@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Header,
   HeaderGlobalAction,
@@ -15,14 +15,14 @@ import {
   SideNavMenu,
   SideNavMenuItem,
   SkipToContent,
-} from "@carbon/react";
+} from '@carbon/react';
 
 import {
   LogoGithub,
   MagicWand,
   Search,
   Switcher as SwitcherIcon,
-} from "@carbon/icons-react";
+} from '@carbon/icons-react';
 
 export const Nav = () => {
   const [isSideNavExpanded, setIsSideNavExpanded] = useState(false);
@@ -38,7 +38,7 @@ export const Nav = () => {
       <Header aria-label="fed-at-ibm">
         <SkipToContent />
         <HeaderMenuButton
-          aria-label={isSideNavExpanded ? "Close menu" : "Open menu"}
+          aria-label={isSideNavExpanded ? 'Close menu' : 'Open menu'}
           onClick={toggleNav}
           isCollapsible={true}
           isActive={isSideNavExpanded}

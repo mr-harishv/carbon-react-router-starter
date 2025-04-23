@@ -1,9 +1,5 @@
 import { Suspense } from 'react';
-import {
-  Column,
-  Grid,
-  Tile,
-} from '@carbon/react';
+import { Column, Grid, Tile } from '@carbon/react';
 
 import { Nav } from '../../components/nav/Nav';
 import { Footer } from '../../components/footer/Footer';
@@ -17,15 +13,14 @@ const NumberTile = () => {
       <Tile className="cs--dashboard__tile cs--dashboard__tile--number">
         <dl>
           <dt>Active users</dt>
-          <dd>{ Math.round(Math.random() * 1000) }</dd>
+          <dd>{Math.round(Math.random() * 1000)}</dd>
         </dl>
       </Tile>
     </Column>
   );
-}
+};
 
 const Dashboard = () => {
-
   return (
     <Suspense fallback={<p>Loading welcome page...</p>}>
       <Nav />
@@ -53,6 +48,6 @@ const Dashboard = () => {
       </section>
     </Suspense>
   );
-}
+};
 
 export default Dashboard;

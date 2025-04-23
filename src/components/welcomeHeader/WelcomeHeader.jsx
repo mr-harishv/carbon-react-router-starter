@@ -4,10 +4,10 @@ import { ArrowRight } from '@carbon/icons-react';
 
 export const WelcomeHeader = () => {
   return (
-    <Grid className='cs--welcome-header'>
+    <Grid className="cs--welcome-header">
       <Column sm={4} md={8} lg={8}>
-        <AspectRatio as='section' ratio='16x9'>
-          <h1 className='cs--welcome-header__title'>
+        <AspectRatio as="section" ratio="16x9">
+          <h1 className="cs--welcome-header__title">
             Welcome to the Carbon React starter template
           </h1>
           <p>
@@ -22,11 +22,11 @@ export const WelcomeHeader = () => {
         </AspectRatio>
       </Column>
       <Column sm={4} md={8} lg={8}>
-        <AspectRatio ratio='16x9' className='cs--welcome-header__image-banner'>
+        <AspectRatio ratio="16x9" className="cs--welcome-header__image-banner">
           <img
-            src='/icon.dark.svg'
-            className='cs--welcome-header__logo'
-            alt='fed-at-ibm logo'
+            src="/icon.dark.svg"
+            className="cs--welcome-header__logo"
+            alt="fed-at-ibm logo"
           />
         </AspectRatio>
       </Column>

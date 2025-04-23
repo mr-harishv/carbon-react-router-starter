@@ -1,7 +1,7 @@
-const ci =  {
+const ci = {
   collect: {
-    "startServerCommand": "cross-env NODE_ENV=production node server",
-    "url": "http://localhost:5173/",
+    startServerCommand: 'cross-env NODE_ENV=production node server',
+    url: 'http://localhost:5173/',
   },
   assert: {
     // assert options here
@@ -15,6 +15,6 @@ const ci =  {
   wizard: {
     // wizard options here
   },
-}
+};
 
 export { ci };
