@@ -1,15 +1,37 @@
-import { Suspense } from 'react';
-import { CodeSnippet, Column, Grid, Tile } from '@carbon/react';
+import {
+  CodeSnippet,
+  Column,
+  Grid,
+  Tile
+} from '@carbon/react';
+import { Suspense, useEffect, useState } from 'react';
 
-import { WelcomeHeader } from '../../components/welcomeHeader/WelcomeHeader';
+
+import { getMessage } from '../../api/message.js';
 import { Footer } from '../../components/footer/Footer';
 import { Nav } from '../../components/nav/Nav';
+import { WelcomeHeader } from '../../components/welcomeHeader/WelcomeHeader';
 
 // The styles are imported into index.scss by default.
 // Do the same unless you have a good reason not to.
 // import './welcome.scss';
 
 const Welcome = () => {
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const loadMessage = async () => {
+      try {
+        const msg = await getMessage();
+        setMessage(msg);
+      } catch {
+        setMessage('Failed to load message');
+      }
+    };
+
+    loadMessage();
+  }, []);
+
   return (
     <Suspense fallback={<p>Loading welcome page...</p>}>
       <Nav />
@@ -88,8 +110,8 @@ const Welcome = () => {
                 <h3 className="cs--welcome__heading">↳ Features</h3>
               </Column>
               <Column className="cs--welcome__tile" sm={2} md={4} lg={4}>
-                <Tile title="Feature 1">
-                  <strong>React 18 SSR</strong>
+                <Tile title="Flexibility">
+                  <strong>React 19</strong>
                 </Tile>
               </Column>
               <Column className="cs--welcome__tile" sm={2} md={4} lg={4}>
@@ -100,6 +122,35 @@ const Welcome = () => {
               <Column className="cs--welcome__tile" sm={2} md={4} lg={4}>
                 <Tile title="Feature 3">
                   <strong>Vite 6.0</strong>
+                </Tile>
+              </Column>
+            </Grid>
+          </Column>
+          <Column
+            className="cs--welcome__fetching"
+            lg={{ span: 16 }}
+            md={{ span: 8 }}
+            sm={4}
+          >
+            <Grid>
+              <Column sm={2} md={4} lg={4}>
+                <h3 className="cs--welcome__heading">
+                  ↳ An example of data fetching
+                </h3>
+              </Column>
+              <Column
+                sm={2}
+                md={4}
+                lg={12}
+                className="cs--welcome__dynamic-message"
+              >
+                <p>
+                  Below is a dynamically fetched message from an external API
+                  endpoint. This showcases how to perform data fetching while
+                  keeping components clean and separating network logic.
+                </p>
+                <Tile>
+                  <strong>Message:</strong> {message || 'Loading...'}
                 </Tile>
               </Column>
             </Grid>

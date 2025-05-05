@@ -1,6 +1,7 @@
-import express from 'express';
 import fs from 'node:fs/promises';
+import express from 'express';
 import { Transform } from 'node:stream';
+import { getRoutes } from './routes/routes.js';
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production';
@@ -29,6 +30,9 @@ if (!isProduction) {
   app.use(base, sirv('./dist/client', { extensions: [] }));
 }
 
+// Register API routes
+getRoutes(app);
+
 // Serve HTML
 app.use('*all', async (req, res) => {
   try {
@@ -36,7 +40,7 @@ app.use('*all', async (req, res) => {
 
     /** @type {string} */
     let template;
-    /** @type {import('./src/entry-server.js').render} */
+    /** @type {import('./entry-server.jsx').render} */
     let render;
     if (!isProduction) {
       // Always read fresh template in development
@@ -48,7 +52,7 @@ app.use('*all', async (req, res) => {
         ? await fs.readFile('./dist/client/index.html', 'utf-8')
         : '';
       template = templateHtml;
-      render = (await import('./dist/server/entry-server.js')).render;
+      render = (await import('../dist/server/entry-server.js')).render;
     }
 
     let didError = false;

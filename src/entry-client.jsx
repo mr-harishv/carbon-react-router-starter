@@ -12,5 +12,5 @@ hydrateRoot(
     <BrowserRouter>
       <PageWrapper />
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 );

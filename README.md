@@ -47,6 +47,30 @@ Ultimately, we want to save you time by avoiding you weeks of research to build 
 - **Quality and productivity helpers:** this project contains quite a few helpers to help consistency, productivity and speed. For example it has templates for unit and end-to-end testing. It also contains linters so your team doesn't have to lose time on code formatting.
   With time we plan to add more helpers to help you monitor your accessibility and front-end performance.
 
+### Testing
+
+This project comes with a pre-configured testing setup using React Testing Library, MSW (Mock Service Worker), and Vitest to make unit and integration tests easy to write and run.
+
+#### Setup
+
+- The test configuration is located in `vite.config.js`, which sets up Vitest with globals, a JSDOM environment, and points to the setup file `src/test/setup.js`.
+
+- This file handles mocking network requests and manages server startup and teardown. It also handles mocking browser features missing in JSDOM.
+
+- The `src/test/server.js` wraps the server with msw's setupServer function and injects networking utils from `src/test/networking.js` that track each outgoing network request and help debugging unit tests.
+
+#### Writing Tests
+
+Add your test files to `src/__test__/*.test.jsx`, import the necessary methods from React Testing Library and MSW and use `render` and `screen` to render your components and interact with them. Use MSW handlers (defined in `src/test/server.js`) to mock API responses for your components.
+
+
+#### Running Tests
+
+For test execution, run:
+`npm run test`
+
+The Vitest runner will also handle test coverage reports automatically.
+
 ## Keeping this up to date
 
 We will do our best to update this template on a regular basis. However, if you want to help us, don't hesitate to make your own pull request so we can keep this reliable to use.
