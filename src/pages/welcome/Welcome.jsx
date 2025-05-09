@@ -37,7 +37,7 @@ const Welcome = () => {
       <Nav />
 
       {/* Main Content */}
-      <section className="cs--welcome">
+      <main className="cs--welcome">
         <WelcomeHeader />
         <Grid>
           <Column sm={4} md={4} lg={8} xlg={4}>
@@ -157,7 +157,7 @@ const Welcome = () => {
           </Column>
           <Footer />
         </Grid>
-      </section>
+      </main>
     </Suspense>
   );
 };

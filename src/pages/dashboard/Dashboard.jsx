@@ -26,7 +26,7 @@ const Dashboard = () => {
       <Nav />
 
       {/* Main Content */}
-      <section className="cs--dashboard">
+      <main className="cs--dashboard">
         <Grid>
           <NumberTile />
           <NumberTile />
@@ -45,7 +45,7 @@ const Dashboard = () => {
           </Column>
           <Footer />
         </Grid>
-      </section>
+      </main>
     </Suspense>
   );
 };
