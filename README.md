@@ -23,7 +23,7 @@ It is intended to be helping, not dictating. If you don't know exactly what to u
 
 Create a production build with `npm run build`, but be aware that a server runtime is needed as this project uses server-side rendering.
 
-## How do this work
+## How does this work
 
 ### Philosophy
 
@@ -35,6 +35,12 @@ This project is driven by a few principles:
 - Performance and accessibility oriented
 
 Ultimately, we want to save you time by avoiding you weeks of research to build a simple base stack to create a first iteration from.
+
+### Documentation
+
+While the ultimate documentation is the code, it is like all languages possible to write some very complex stories. In creating this project we have tried to document inline complexity and where we deviate from standard practices or configurations. If you find something confusing, then we consider this a bug and would ask that you raise an issue.
+
+Where documenting inline is not possible or impractical we have added explanations in the [docs](./docs) folder.
 
 ### Project structure
 

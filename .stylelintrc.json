@@ -16,7 +16,7 @@
     "a11y/no-outline-none": true,
     "a11y/selector-pseudo-class-focus": true,
     "max-nesting-depth": [
-      3,
+      2,
       {
         "ignoreAtRules": ["if", "else", "each", "include", "mixin"]
       }
