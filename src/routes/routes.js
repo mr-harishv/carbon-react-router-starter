@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/namespace
 import { getMessage } from '../service/message.js';
 
 export const routeHandlers = {

@@ -17,7 +17,7 @@ export const getNetworking = () => {
       const allPaths = Array.from(runningRequests).join(' , ');
       console.error(
         'There are running requests after the test is completed: ',
-        allPaths
+        allPaths,
       );
       expect(runningRequests.size).toStrictEqual(0);
     } else {

@@ -6,14 +6,14 @@ export const getMessage = async (req, res) => {
   try {
     const response = await fetch(
       // TODO: replace with actual endpoint URL
-      'https://jsonplaceholder.typicode.com/posts/1'
+      'https://jsonplaceholder.typicode.com/posts/1',
     );
     // The sample endpoint returns a blogpost
     const blogpost = await response.json();
 
     // Return the blogpost's title
     res.json({ message: blogpost.title });
-  } catch (error) {
+  } catch {
     res.status(500).json({ message: 'Failed to fetch message' });
   }
 };

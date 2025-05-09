@@ -1,11 +1,5 @@
-import {
-  CodeSnippet,
-  Column,
-  Grid,
-  Tile
-} from '@carbon/react';
+import { CodeSnippet, Column, Grid, Tile } from '@carbon/react';
 import { Suspense, useEffect, useState } from 'react';
-
 
 import { getMessage } from '../../api/message.js';
 import { Footer } from '../../components/footer/Footer';
