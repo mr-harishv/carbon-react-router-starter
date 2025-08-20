@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "Figma Dev Mode MCP": {
+      "type": "http",
+      "url": "http://localhost:3845/mcp",
+      "alwaysAllow": [
+        "get_plugin_info",
+        "get_code",
+        "get_image",
+        "get_variable_defs",
+        "create_design_system_rules",
+        "download_figma_images"
+      ],
+      "disabled": false
+    }
+  }
+}

@@ -8,29 +8,94 @@
 @use '@carbon/react/scss/grid' as *;
 @use '@carbon/react/scss/spacing' as *;
 @use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/colors' as *;
 @use '../page-common' as common;
 
 .cs--dashboard {
   @include common.page-common;
 }
 
+// Dashboard heading styles
+.cs--dashboard__heading {
+  @include type-style('heading-04');
+  margin-block: $spacing-05;
+  color: $text-primary;
+}
+
+// Common tile styles
 .cs--dashboard__tile {
   margin-block: $spacing-05;
   block-size: calc(
     100% - $spacing-07
   ); // Sets common height for the row, a min-height should be added as well.
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 }
 
-/* While the carbon documentation states that most containers should be
-   sized through the aspect ratios defined in the design language,
-   the practice shows a fixed height often works better. Choose a
-   height that is a multiple of one of the spacing tokens to keep the
-   vertical rhythm */
+// Number tile styles
 .cs--dashboard__tile--number {
   min-block-size: calc(2 * $spacing-10);
+
+  dl {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  dt {
+    @include type-style('heading-01');
+    color: $text-secondary;
+    margin-bottom: $spacing-03;
+  }
+
+  dd {
+    @include type-style('heading-04');
+    color: $text-primary;
+    margin: 0;
+    font-weight: 600;
+  }
 }
 
-/* Same as for previous declaration */
+// Data tile styles
 .cs--dashboard__tile--data {
   min-block-size: calc(8 * $spacing-10);
+  padding: $spacing-05;
+}
+
+// Tile heading styles
+.cs--dashboard__tile-heading {
+  @include type-style('heading-03');
+  margin-bottom: $spacing-05;
+  color: $text-primary;
+}
+
+// Placeholder styles for visualization and table
+.cs--dashboard__visualization-placeholder,
+.cs--dashboard__table-placeholder {
+  height: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $layer-01;
+  border: 1px dashed $border-subtle-01;
+  border-radius: 4px;
+
+  p {
+    @include type-style('body-01');
+    color: $text-secondary;
+  }
+}
+
+// Footer wrapper styles
+.cs--dashboard__footer-wrapper {
+  margin-top: $spacing-07;
 }
